@@ -1,5 +1,5 @@
 const express = require("express");
-const { createBook, getBooks } = require("../controller/bookController.cjs");
+const { createBook, getBooks , updateBook} = require("../controller/bookController.cjs");
 
 const router = express.Router();
 
@@ -7,6 +7,6 @@ router.post("/create", createBook);
 
 router.get("/", getBooks);
 
-// router.put("/update/:id", updateBook);
+router.post("/update", updateBook);
 
 module.exports = router;

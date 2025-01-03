@@ -72,4 +72,14 @@ const authUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, authUser };
+const getUsers = async (req,res)=>{
+  try {
+    const user = await User.find();
+    res.status(200).json(user);
+  } catch (err) {
+    console.error("Error in fetching the Users");
+    res.status(500).json({ message: "Error" });
+  }
+}
+
+module.exports = { registerUser, authUser , getUsers};
